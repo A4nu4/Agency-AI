@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "@src/components/Navbar";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustedBy from "./components/TrustedBy";
 import Services from "./components/Services";
@@ -7,6 +7,7 @@ import OurWork from "./components/OurWork";
 import Teams from "./components/Teams";
 import ContactUs from "./components/ContactUs";
 import { Toaster } from "react-hot-toast";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [theme, setTheme] = React.useState(
@@ -23,6 +24,7 @@ const App = () => {
       <OurWork />
       <Teams />
       <ContactUs />
+      <Footer theme={theme} />
     </div>
   );
 };
