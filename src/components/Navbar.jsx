@@ -1,11 +1,12 @@
 import React from "react";
-import assets from "../assets/assets";
+import assets from "@src/assets/assets";
+import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   return (
-    <div className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70">
+    <div className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900">
       <img
         src={theme === "dark" ? assets.logo_dark : assets.logo}
         className="w-32 sm:w-40"
@@ -22,21 +23,39 @@ const Navbar = ({ theme, setTheme }) => {
           onClick={() => setSidebarOpen(false)}
         />
 
-        <a href="#" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="#"
+          className="sm:hover:border-b"
+        >
           Home
         </a>
-        <a href="services" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="services"
+          className="sm:hover:border-b"
+        >
           Services
         </a>
-        <a href="our-work" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="our-work"
+          className="sm:hover:border-b"
+        >
           Our Work
         </a>
-        <a href="contact-us" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="contact-us"
+          className="sm:hover:border-b"
+        >
           Contact Us
         </a>
       </div>
 
       <div className="flex items-center gap-2 sm:gap-4">
+        <ThemeToggleBtn theme={theme} setTheme={setTheme} />
+
         <img
           src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
           alt=""
