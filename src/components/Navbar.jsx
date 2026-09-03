@@ -1,6 +1,6 @@
 import React from "react";
-import ThemeToggleBtn from "./ThemeToggleBtn";
-import assets from "@src/assets/assets";
+import ThemeToggleBtn from "@/components/ThemeToggleBtn";
+import assets from "@/assets/assets";
 
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);

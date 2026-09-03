@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "./Title";
-import { teamData } from "@src/assets/assets";
+
+import { teamData } from "@/assets/assets";
 
 const Teams = () => {
   return (
