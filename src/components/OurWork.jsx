@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import Title from "@/components/Title";
 import assets from "@/assets/assets";
 
@@ -24,7 +24,7 @@ const workData = [
 
 const OurWork = () => {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -38,7 +38,7 @@ const OurWork = () => {
       />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
         {workData.map((work, index) => (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -46,13 +46,19 @@ const OurWork = () => {
             key={index}
             className="hover:scale-102 duration-500 transition-all cursor-pointer"
           >
-            <img src={work.image} className="w-full rounded-xl" alt="" />
+            <img
+              src={work.image}
+              className="w-full rounded-xl"
+              alt=""
+              width="640"
+              height="434"
+            />
             <h3 className="mt-3 mb-2 text-lg font-semibold">{work.title}</h3>
             <p className="text-sm opacity-60 w-5/6">{work.description}</p>
-          </motion.div>
+          </m.div>
         ))}
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

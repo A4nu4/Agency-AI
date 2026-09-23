@@ -26,14 +26,16 @@ const ThemeToggleBtn = ({ theme, setTheme }) => {
             onClick={() => setTheme("light")}
             src={assets.sun_icon}
             className="size-8.5 p-1.5 border border-gray-500 rounded-full"
-            alt=""
+            alt="Dark mode"
+            aria-label="Theme toggle button"
           />
         ) : (
           <img
             onClick={() => setTheme("dark")}
             src={assets.moon_icon}
             className="size-8.5 p-1.5 border border-gray-500 rounded-full"
-            alt=""
+            alt="Light mode"
+            aria-label="Theme toggle button"
           ></img>
         )}
       </button>

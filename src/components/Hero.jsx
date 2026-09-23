@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import assets from "@/assets/assets";
 
 const Hero = () => {
@@ -8,7 +8,7 @@ const Hero = () => {
       id="hero"
       className="flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white"
     >
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.7 }}
@@ -17,9 +17,9 @@ const Hero = () => {
       >
         <img className="w-20" src={assets.group_profile} alt="" />
         <p className="text-xs font-medium">Trusted by 10k+ people</p>
-      </motion.div>
+      </m.div>
 
-      <motion.h1
+      <m.h1
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
@@ -31,9 +31,9 @@ const Hero = () => {
           digital
         </span>{" "}
         impact.
-      </motion.h1>
+      </m.h1>
 
-      <motion.p
+      <m.p
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1 }}
@@ -42,22 +42,35 @@ const Hero = () => {
       >
         Creating meaningful connections and turning big ideas into interactive
         digital experiences.
-      </motion.p>
+      </m.p>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 1.5 }}
         viewport={{ once: true }}
         className="relative"
       >
-        <img src={assets.hero_img} alt="" className="w-full max-w-6xl" />
         <img
-          src={assets.bgImage1}
+          src="/hero_img.webp"
+          srcSet="/hero_img-sm.webp 768w, /hero_img-md.webp 1466w, /hero_img.webp 1920w"
+          sizes="(max-width: 768px) 100vw, (max-width: 1466px) 1466px, 1920px"
           alt=""
+          loading="eager"
+          width="1920"
+          height="1056"
+          className="w-full h-auto max-w-6xl object-cover"
+        />
+        <img
+          src="/bgImage1.webp"
+          srcSet="/bgImage1-sm.webp 760w, /bgImage1-md.webp 1466w, /bgImage1.webp 1920w"
+          sizes="(max-width: 760px) 100vw, (max-width: 1466px) 1466px, 1920px"
+          alt=""
+          width="1920"
+          height="1415"
           className="absolute -top-40 -right-40 sm:-top-100 sm:-right-70 -z-1 dark:hidden"
         />
-      </motion.div>
+      </m.div>
     </div>
   );
 };

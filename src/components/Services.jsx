@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 import Title from "@/components/Title";
 import ServiceCard from "@/components/ServiceCard";
@@ -33,7 +33,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -57,7 +57,7 @@ const Services = () => {
           <ServiceCard key={index} service={service} index={index} />
         ))}
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

@@ -1,10 +1,10 @@
 import React from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import assets from "@/assets/assets";
 
 const Footer = ({ theme }) => {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -13,7 +13,7 @@ const Footer = ({ theme }) => {
     >
       {/* Footer Top */}
       <div className="flex justify-between lg:items-center max-lg:flex-col gap-10">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -51,9 +51,9 @@ const Footer = ({ theme }) => {
               </a>
             </li>
           </ul>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -74,12 +74,12 @@ const Footer = ({ theme }) => {
               Subscribe
             </button>
           </div>
-        </motion.div>
+        </m.div>
       </div>
       <hr className="border-gray-300 dark:border-gray-600 my-6" />
 
       {/* Footer Bottom */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -93,8 +93,8 @@ const Footer = ({ theme }) => {
           <img src={assets.instagram_icon} alt="Instagram" />
           <img src={assets.linkedin_icon} alt="Linkedin" />
         </div>
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 };
 

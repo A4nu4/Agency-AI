@@ -3,7 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset="/hero_img-sm.webp 768w, /hero_img-md.webp 1466w, /hero_img.webp 1920w"
+      imagesizes="(max-width: 768px) 100vw, (max-width: 1466px) 1466px, 1920px"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset="/bgImage1-sm.webp 760w, /bgImage1-md.webp 1466w, /bgImage1.webp 1920w"
+      imagesizes="(max-width: 760px) 100vw, (max-width: 1466px) 1466px, 1920px"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Agency AI About Company" />
     <title>Agency AI</title>
   </head>
   <body>

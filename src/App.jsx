@@ -1,14 +1,19 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 
+import "@fontsource-variable/manrope";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustedBy from "@/components/TrustedBy";
-import Services from "@/components/Services";
-import OurWork from "@/components/OurWork";
-import Teams from "@/components/Teams";
-import ContactUs from "@/components/ContactUs";
-import Footer from "@/components/Footer";
+
+import { lazy } from "react";
+import { LazyMotion, domAnimation } from "motion/react";
+
+const Services = lazy(() => import("@/components/Services"));
+const OurWork = lazy(() => import("@/components/OurWork"));
+const Teams = lazy(() => import("@/components/Teams"));
+const ContactUs = lazy(() => import("@/components/ContactUs"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const App = () => {
   const dotRef = React.useRef(null);
@@ -19,6 +24,16 @@ const App = () => {
   const position = React.useRef({ x: 0, y: 0 });
 
   React.useEffect(() => {
+    const isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const isMobile = window.innerWidth <= 768;
+
+    if (isTouchDevice || isMobile) {
+      if (dotRef.current) dotRef.current.style.display = "none";
+      if (outlineRef.current) outlineRef.current.style.display = "none";
+      return;
+    }
+
     const handleMouseMove = (e) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
@@ -44,26 +59,30 @@ const App = () => {
   }, []);
 
   const [theme, setTheme] = React.useState(
-    localStorage.getItem("item") ? localStorage.getItem("theme") : "light",
+    localStorage.getItem("theme") || "light",
   );
 
   return (
     <div className="dark:bg-black relative">
       <Toaster />
-      <Navbar theme={theme} setTheme={setTheme} />
-      <Hero />
-      <TrustedBy />
-      <Services />
-      <OurWork />
-      <Teams />
-      <ContactUs />
-      <Footer theme={theme} />
+      <LazyMotion features={domAnimation}>
+        <Navbar theme={theme} setTheme={setTheme} />
+        <Hero />
+        <TrustedBy />
+
+        <Suspense fallback={null}>
+          <Services />
+          <OurWork />
+          <Teams />
+          <ContactUs />
+          <Footer theme={theme} />
+        </Suspense>
+      </LazyMotion>
 
       {/* Custom Cursor Ring */}
       <div
         ref={outlineRef}
         className="fixed top-0 left-0 h-10 w-10 rounded-full border border-primary pointer-events-none z-[9999]"
-        style={{ transition: "transform 0.1s ease-out" }}
       ></div>
 
       {/* Custom Cursor Dot */}

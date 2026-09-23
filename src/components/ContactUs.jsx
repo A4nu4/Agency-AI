@@ -1,6 +1,6 @@
 import React from "react";
 import toast from "react-hot-toast";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 import Title from "@/components/Title";
 import assets from "@/assets/assets";
@@ -31,7 +31,7 @@ const ContactUs = () => {
   };
 
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -44,7 +44,7 @@ const ContactUs = () => {
         desc="From strategy to execution, we craft digital solutions that move your business forward."
       />
 
-      <motion.form
+      <m.form
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -95,10 +95,10 @@ const ContactUs = () => {
           type="submit"
           className="w-max flex gap-2 bg-primary text-white text-sm px-10 py-3 rounded-full cursor-pointer hover:scale-103 transition-all"
         >
-          Submit <img src={assets.arrow_icon} />
+          Submit <img src={assets.arrow_icon} alt="Submit button" />
         </button>
-      </motion.form>
-    </motion.div>
+      </m.form>
+    </m.div>
   );
 };
 

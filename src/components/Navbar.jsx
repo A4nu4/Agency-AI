@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 import ThemeToggleBtn from "@/components/ThemeToggleBtn";
 import assets from "@/assets/assets";
@@ -8,7 +8,7 @@ const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -77,7 +77,7 @@ const Navbar = ({ theme, setTheme }) => {
           Connect <img src={assets.arrow_icon} width={14} alt="" />
         </a>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
